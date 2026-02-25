@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Better Hello World</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+    }
+
+    .card {
+      background: white;
+      padding: 40px 60px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 60px;
+      margin: 0 0 20px 0;
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #4e73df;
+      color: white;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #2e59d9;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1 id="message">Hello, World!</h1>
+    <button onclick="changeText()">Click Me</button>
+  </div>
+
+  <script>
+    function changeText() {
+      const message = document.getElementById("message");
+      message.textContent = "You just made it interactive";
+    }
+  </script>
+
+</body>
+</html>
