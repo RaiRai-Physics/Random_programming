@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Name - Resume</title>
+</head>
+<body>
+
+    <h1>Your Name</h1>
+    <p>Email: youremail@email.com</p>
+    <p>Phone: (123) 456-7890</p>
+    <p>Location: City, State</p>
+    <p>LinkedIn: linkedin.com/yourprofile</p>
+
+    <hr>
+
+    <h2>Summary</h2>
+    <p>
+        Summary about your background, skills, and career goals.
+    </p>
+
+    <h2>Education</h2>
+    <p><strong>Degree Name</strong></p>
+    <p>University Name, Graduation Year</p>
+    <p>Relevant Coursework: Course 1, Course 2, Course 3</p>
+
+    <h2>Experience</h2>
+
+    <p><strong>Job Title</strong></p>
+    <p>Company Name | Month Year - Month Year</p>
+    <ul>
+        <li>Describe your responsibilities and achievements.</li>
+    </ul>
+
+    <p><strong>Job Title</strong></p>
+    <p>Company Name | Month Year - Month Year</p>
+    <ul>
+        <li>Another accomplishment or responsibility.</li>
+        <li>Highlight relevant skills.</li>
+    </ul>
+
+    <h2>Projects</h2>
+
+    <p><strong>Project Name</strong></p>
+    <ul>
+        <li>What the project was about.</li>
+        <li>Technologies used.</li>
+        <li>Impact or result.</li>
+    </ul>
+
+    <h2>Skills</h2>
+    <ul>
+        <li>Skill 1</li>
+        <li>Skill 2</li>
+        <li>Skill 3</li>
+        <li>Skill 4</li>
+    </ul>
+
+</body>
+</html>
