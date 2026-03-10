@@ -1,0 +1,32 @@
+from functools import reduce
+
+# Input data
+data = [
+    "This is a mapreduce code",
+    "I am using python here",
+    "Trying to understand mapreduce concept",
+    "I think I learnt something here",
+    "I will try to explain what I learnt here to my friends"
+]
+# MAP FUNCTION
+def mapper(sentence):
+    words = sentence.split()
+    return [(word, 1) for word in words]
+
+mapped = []
+for line in data:
+    mapped.extend(mapper(line))
+
+print(mapped)
+
+# REDUCE FUNCTION
+def reducer(acc, item):
+    word, count = item
+    acc[word] = acc.get(word, 0) + count
+    return acc
+
+
+# REDUCE PHASE
+result = reduce(reducer, mapped, {})
+
+print(result)
