@@ -1,0 +1,13 @@
+import random
+
+position = 0
+steps = 20
+
+print("Start position:", position)
+
+for i in range(steps):
+    step = random.choice([-1, 1]) 
+    position += step
+    print(f"Step {i+1}: Position = {position}")
+
+print("Final Position:", position)
