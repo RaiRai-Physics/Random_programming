@@ -1,0 +1,21 @@
+#3-D random walk and visualization
+import random
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+n = 1000
+x, y, z = [0], [0], [0]
+
+moves = [(1,0,0),(-1,0,0),(0,1,0),(0,-1,0),(0,0,1),(0,0,-1)]
+
+for i in range(n):
+    dx, dy, dz = random.choice(moves)
+    x.append(x[-1] + dx)
+    y.append(y[-1] + dy)
+    z.append(z[-1] + dz)
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(x, y, z)
+
+plt.show()
