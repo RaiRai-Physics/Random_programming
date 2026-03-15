@@ -1,0 +1,17 @@
+#2D random walk and visualization
+
+import random
+import matplotlib.pyplot as plt
+
+n = 1000
+x, y = [0], [0]
+
+for i in range(n):
+    direction = random.choice([(1,0),(-1,0),(0,1),(0,-1)])
+    x.append(x[-1] + direction[0])
+    y.append(y[-1] + direction[1])
+
+plt.plot(x, y)
+plt.scatter(0,0,color='red')
+plt.title("2D Random Walk")
+plt.show()
