@@ -1,0 +1,65 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# 1. Creating sample dataset
+X, y = make_classification(
+    n_samples=1000,
+    n_features=20,
+    n_classes=2,
+    random_state=42
+)
+
+# 2. Splitying into train/test
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# 3. Scaling of data
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# 4. Conversion to PyTorch tensors
+X_train = torch.tensor(X_train, dtype=torch.float32)
+y_train = torch.tensor(y_train, dtype=torch.float32).view(-1, 1)
+
+X_test = torch.tensor(X_test, dtype=torch.float32)
+y_test = torch.tensor(y_test, dtype=torch.float32).view(-1, 1)
+
+# 5. Definition of simple model
+model = nn.Sequential(
+    nn.Linear(20, 16),
+    nn.ReLU(),
+    nn.Linear(16, 1),
+    nn.Sigmoid()
+)
+
+# 6. Loss and optimization
+criterion = nn.BCELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+# 7. Training loop
+for epoch in range(50):
+    # Forward pass
+    outputs = model(X_train)
+    loss = criterion(outputs, y_train)
+
+    # Backward pass
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+    if (epoch + 1) % 10 == 0:
+        print(f"Epoch {epoch+1}, Loss: {loss.item():.4f}")
+
+# 8. Evaluation
+with torch.no_grad():
+    predictions = model(X_test)
+    predicted_classes = (predictions > 0.5).float()
+    accuracy = (predicted_classes == y_test).float().mean()
+
+print("Test Accuracy:", accuracy.item())
